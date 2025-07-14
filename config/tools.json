@@ -1,0 +1,1533 @@
+{
+  "Network Security & Monitoring": [
+    {
+      "name": "Fortinet FortiGate",
+      "description": "Commercial Network Firewall. Not directly installable via UHT. Refer to Fortinet documentation.",
+      "github_url": null,
+      "install_path": null,
+      "run_command": "N/A (appliance/platform)",
+      "os_compat": ["any"],
+      "dependencies": {
+        "default": []
+      },
+      "post_install_commands": [],
+      "skip_if_os_not_supported": false
+    },
+    {
+      "name": "Palo Alto Networks Firewall",
+      "description": "Commercial Next-Generation Firewall. Not directly installable via UHT. Refer to Palo Alto Networks documentation.",
+      "github_url": null,
+      "install_path": null,
+      "run_command": "N/A (appliance/platform)",
+      "os_compat": ["any"],
+      "dependencies": {
+        "default": []
+      },
+      "post_install_commands": [],
+      "skip_if_os_not_supported": false
+    },
+    {
+      "name": "Cisco ASA",
+      "description": "Commercial Adaptive Security Appliance (Firewall/VPN). Not directly installable via UHT. Refer to Cisco documentation.",
+      "github_url": null,
+      "install_path": null,
+      "run_command": "N/A (appliance/platform)",
+      "os_compat": ["any"],
+      "dependencies": {
+        "default": []
+      },
+      "post_install_commands": [],
+      "skip_if_os_not_supported": false
+    },
+    {
+      "name": "Check Point Firewall",
+      "description": "Commercial Network Security Gateway. Not directly installable via UHT. Refer to Check Point documentation.",
+      "github_url": null,
+      "install_path": null,
+      "run_command": "N/A (appliance/platform)",
+      "os_compat": ["any"],
+      "dependencies": {
+        "default": []
+      },
+      "post_install_commands": [],
+      "skip_if_os_not_supported": false
+    },
+    {
+      "name": "Sophos XG Firewall",
+      "description": "Commercial Next-Generation Firewall. Not directly installable via UHT. Refer to Sophos documentation.",
+      "github_url": null,
+      "install_path": null,
+      "run_command": "N/A (appliance/platform)",
+      "os_compat": ["any"],
+      "dependencies": {
+        "default": []
+      },
+      "post_install_commands": [],
+      "skip_if_os_not_supported": false
+    },
+    {
+      "name": "Cloudflare WAF",
+      "description": "Cloud-based Web Application Firewall. Managed via Cloudflare dashboard.",
+      "github_url": null,
+      "install_path": null,
+      "run_command": "N/A (cloud service)",
+      "os_compat": ["any"],
+      "dependencies": {
+        "default": []
+      },
+      "post_install_commands": [],
+      "skip_if_os_not_supported": false
+    },
+    {
+      "name": "Akamai WAF",
+      "description": "Cloud-based Web Application Firewall. Managed via Akamai platform.",
+      "github_url": null,
+      "install_path": null,
+      "run_command": "N/A (cloud service)",
+      "os_compat": ["any"],
+      "dependencies": {
+        "default": []
+      },
+      "post_install_commands": [],
+      "skip_if_os_not_supported": false
+    },
+    {
+      "name": "pfSense",
+      "description": "Open source firewall/router software distribution. Typically installed as an OS.",
+      "github_url": null,
+      "install_path": null,
+      "run_command": "N/A (OS/firmware)",
+      "os_compat": ["linux"], # Based on FreeBSD, but often deployed on Linux hardware
+      "dependencies": {
+        "default": []
+      },
+      "post_install_commands": [],
+      "skip_if_os_not_supported": true
+    },
+    {
+      "name": "OPNsense",
+      "description": "Open source firewall/router software distribution, a fork of pfSense. Typically installed as an OS.",
+      "github_url": null,
+      "install_path": null,
+      "run_command": "N/A (OS/firmware)",
+      "os_compat": ["linux"], # Based on FreeBSD, but often deployed on Linux hardware
+      "dependencies": {
+        "default": []
+      },
+      "post_install_commands": [],
+      "skip_if_os_not_supported": true
+    },
+    {
+      "name": "ModSecurity",
+      "description": "Open source Web Application Firewall (WAF) engine. Often integrated with Apache/Nginx.",
+      "github_url": "https://github.com/owasp-modsecurity/ModSecurity.git",
+      "install_path": "tools/modsecurity",
+      "run_command": "N/A (module)",
+      "os_compat": ["linux"],
+      "dependencies": {
+        "linux": ["apache2", "libapache2-mod-security2"], # Example for Apache
+        "default": []
+      },
+      "post_install_commands": [], # Installation is complex, often via package manager or source compile
+      "skip_if_os_not_supported": true
+    },
+    {
+      "name": "Snort",
+      "description": "Open Source Intrusion Prevention System (IPS) and Intrusion Detection System (IDS). Requires complex compilation from source or package manager install.",
+      "github_url": "https://github.com/snort3/snort3.git",
+      "install_path": "tools/snort3",
+      "run_command": "snort",
+      "os_compat": ["linux", "windows"],
+      "dependencies": {
+        "linux": ["build-essential", "libpcap-dev", "libdaq-dev", "libluajit-5.1-dev", "libssl-dev", "libnghttp2-dev", "liblzma-dev", "zlib1g-dev"],
+        "windows": [], # Complex build/install, typically manual
+        "default": []
+      },
+      "post_install_commands": [], # Compilation is too complex for general automation
+      "skip_if_os_not_supported": true
+    },
+    {
+      "name": "Suricata",
+      "description": "High performance Network IDS, IPS and Network Security Monitoring engine. Requires complex compilation from source or package manager install.",
+      "github_url": "https://github.com/OISF/suricata.git",
+      "install_path": "tools/suricata",
+      "run_command": "suricata",
+      "os_compat": ["linux", "windows", "macos"],
+      "dependencies": {
+        "linux": ["build-essential", "libpcap-dev", "libnetfilter-queue-dev", "libyaml-dev", "zlib1g-dev", "libcap-ng-dev", "libjansson-dev", "pkg-config", "rustc", "cargo"],
+        "windows": [], # Complex build/install, typically manual
+        "macos": ["suricata"], # Homebrew package
+        "default": []
+      },
+      "post_install_commands": [], # Compilation is too complex for general automation
+      "skip_if_os_not_supported": true
+    },
+    {
+      "name": "Zeek (formerly Bro)",
+      "description": "Powerful network analysis framework that transforms network traffic into highly-detailed, scriptable logs. Requires compilation.",
+      "github_url": "https://github.com/zeek/zeek.git",
+      "install_path": "tools/zeek",
+      "run_command": "zeek",
+      "os_compat": ["linux", "macos"],
+      "dependencies": {
+        "linux": ["cmake", "make", "gcc", "g++", "libpcap-dev", "libssl-dev", "libjson-c-dev", "libmaxminddb-dev", "python3-dev"],
+        "macos": ["cmake", "libpcap", "openssl", "json-c", "libmaxminddb", "python"],
+        "default": []
+      },
+      "post_install_commands": [], # Compilation is too complex for general automation
+      "skip_if_os_not_supported": true
+    },
+    {
+      "name": "Wireshark",
+      "description": "The world’s foremost and widely used network protocol analyzer. Download from official site: https://www.wireshark.org/download.html",
+      "github_url": null,
+      "install_path": null,
+      "run_command": "wireshark",
+      "os_compat": ["linux", "windows", "macos"],
+      "dependencies": {
+        "linux": ["wireshark"],
+        "windows": ["wireshark"],
+        "macos": ["wireshark"],
+        "default": []
+      },
+      "post_install_commands": [],
+      "skip_if_os_not_supported": false
+    },
+    {
+      "name": "tcpdump",
+      "description": "A powerful command-line packet analyzer. Often pre-installed on Linux/Unix systems.",
+      "github_url": null,
+      "install_path": null,
+      "run_command": "tcpdump",
+      "os_compat": ["linux", "termux", "macos"],
+      "dependencies": {
+        "linux": ["tcpdump"],
+        "termux": ["tcpdump"],
+        "macos": ["tcpdump"],
+        "default": []
+      },
+      "post_install_commands": [],
+      "skip_if_os_not_supported": false
+    },
+    {
+      "name": "Security Onion",
+      "description": "Free and open platform for threat hunting, enterprise security monitoring, and log management. Requires dedicated OS installation. Download ISO from official site: https://securityonion.net/",
+      "github_url": null,
+      "install_path": null,
+      "run_command": "N/A (OS platform)",
+      "os_compat": ["linux"],
+      "dependencies": {
+        "default": []
+      },
+      "post_install_commands": [],
+      "skip_if_os_not_supported": true
+    },
+    {
+      "name": "Cisco Identity Services Engine (ISE)",
+      "description": "Commercial Network Access Control (NAC) solution. Not directly installable via UHT.",
+      "github_url": null,
+      "install_path": null,
+      "run_command": "N/A (appliance/platform)",
+      "os_compat": ["any"],
+      "dependencies": {
+        "default": []
+      },
+      "post_install_commands": [],
+      "skip_if_os_not_supported": false
+    },
+    {
+      "name": "Fortinet FortiNAC",
+      "description": "Commercial Network Access Control (NAC) solution. Not directly installable via UHT.",
+      "github_url": null,
+      "install_path": null,
+      "run_command": "N/A (appliance/platform)",
+      "os_compat": ["any"],
+      "dependencies": {
+        "default": []
+      },
+      "post_install_commands": [],
+      "skip_if_os_not_supported": false
+    },
+    {
+      "name": "OpenVPN",
+      "description": "Open-source software application that implements virtual private network (VPN) techniques.",
+      "github_url": "https://github.com/OpenVPN/openvpn.git",
+      "install_path": "tools/openvpn",
+      "run_command": "openvpn",
+      "os_compat": ["linux", "termux", "windows", "macos"],
+      "dependencies": {
+        "linux": ["openvpn"],
+        "termux": ["openvpn"],
+        "windows": ["openvpn"],
+        "macos": ["openvpn"],
+        "default": []
+      },
+      "post_install_commands": [],
+      "skip_if_os_not_supported": false
+    },
+    {
+      "name": "WireGuard",
+      "description": "Modern, fast, and secure VPN tunnel.",
+      "github_url": "https://github.com/WireGuard/wireguard-linux-compat.git",
+      "install_path": "tools/wireguard",
+      "run_command": "wg",
+      "os_compat": ["linux", "termux", "windows", "macos"],
+      "dependencies": {
+        "linux": ["wireguard"],
+        "termux": ["wireguard"],
+        "windows": ["wireguard"],
+        "macos": ["wireguard"],
+        "default": []
+      },
+      "post_install_commands": [],
+      "skip_if_os_not_supported": false
+    },
+    {
+      "name": "Cisco Umbrella (OpenDNS)",
+      "description": "Cloud security platform that provides DNS-layer security. Managed via web console.",
+      "github_url": null,
+      "install_path": null,
+      "run_command": "N/A (cloud service)",
+      "os_compat": ["any"],
+      "dependencies": {
+        "default": []
+      },
+      "post_install_commands": [],
+      "skip_if_os_not_supported": false
+    },
+    {
+      "name": "Pi-hole",
+      "description": "A Linux network-level advertisement and Internet tracker blocking application. Requires Raspberry Pi or Linux server. Installation via official script.",
+      "github_url": "https://github.com/pi-hole/pi-hole.git",
+      "install_path": "tools/pi-hole",
+      "run_command": "pihole",
+      "os_compat": ["linux"],
+      "dependencies": {
+        "default": []
+      },
+      "post_install_commands": ["cd {{install_path}} && sudo ./install.sh --unattended"],
+      "skip_if_os_not_supported": true
+    }
+  ],
+  "Endpoint Security": [
+    {
+      "name": "CrowdStrike Falcon",
+      "description": "Highly demanded commercial EDR platform. Requires subscription and agent deployment. Not directly installable via UHT.",
+      "github_url": null,
+      "install_path": null,
+      "run_command": "N/A (commercial agent)",
+      "os_compat": ["linux", "windows", "macos"],
+      "dependencies": {
+        "default": []
+      },
+      "post_install_commands": [],
+      "skip_if_os_not_supported": false
+    },
+    {
+      "name": "Microsoft Defender for Endpoint (XDR)",
+      "description": "Microsoft's enterprise endpoint security platform. Part of Microsoft 365 Defender. Built-in or deployed via management tools.",
+      "github_url": null,
+      "install_path": null,
+      "run_command": "N/A (built-in/commercial)",
+      "os_compat": ["windows", "macos", "linux"],
+      "dependencies": {
+        "default": []
+      },
+      "post_install_commands": [],
+      "skip_if_os_not_supported": false
+    },
+    {
+      "name": "SentinelOne",
+      "description": "Commercial AI-powered EDR platform. Requires subscription and agent deployment. Not directly installable via UHT.",
+      "github_url": null,
+      "install_path": null,
+      "run_command": "N/A (commercial agent)",
+      "os_compat": ["linux", "windows", "macos"],
+      "dependencies": {
+        "default": []
+      },
+      "post_install_commands": [],
+      "skip_if_os_not_supported": false
+    },
+    {
+      "name": "Carbon Black (VMware)",
+      "description": "Commercial endpoint protection and EDR solution. Requires subscription and agent deployment. Not directly installable via UHT.",
+      "github_url": null,
+      "install_path": null,
+      "run_command": "N/A (commercial agent)",
+      "os_compat": ["linux", "windows", "macos"],
+      "dependencies": {
+        "default": []
+      },
+      "post_install_commands": [],
+      "skip_if_os_not_supported": false
+    },
+    {
+      "name": "Sophos Intercept X",
+      "description": "Commercial endpoint protection with EDR and anti-ransomware. Requires subscription and agent deployment. Not directly installable via UHT.",
+      "github_url": null,
+      "install_path": null,
+      "run_command": "N/A (commercial agent)",
+      "os_compat": ["linux", "windows", "macos"],
+      "dependencies": {
+        "default": []
+      },
+      "post_install_commands": [],
+      "skip_if_os_not_supported": false
+    },
+    {
+      "name": "Bitdefender GravityZone",
+      "description": "Commercial endpoint security platform. Requires subscription and agent deployment. Not directly installable via UHT.",
+      "github_url": null,
+      "install_path": null,
+      "run_command": "N/A (commercial agent)",
+      "os_compat": ["linux", "windows", "macos"],
+      "dependencies": {
+        "default": []
+      },
+      "post_install_commands": [],
+      "skip_if_os_not_supported": false
+    },
+    {
+      "name": "Windows Defender",
+      "description": "Microsoft's built-in antivirus and endpoint protection for Windows. Not directly installable via UHT.",
+      "github_url": null,
+      "install_path": null,
+      "run_command": "N/A (built-in)",
+      "os_compat": ["windows"],
+      "dependencies": {
+        "default": []
+      },
+      "post_install_commands": [],
+      "skip_if_os_not_supported": true
+    },
+    {
+      "name": "Malwarebytes",
+      "description": "Popular anti-malware software. Download from official site: https://www.malwarebytes.com/",
+      "github_url": null,
+      "install_path": null,
+      "run_command": "malwarebytes",
+      "os_compat": ["windows", "macos"],
+      "dependencies": {
+        "default": []
+      },
+      "post_install_commands": [],
+      "skip_if_os_not_supported": false
+    },
+    {
+      "name": "Avast/AVG",
+      "description": "Popular antivirus software. Download from official sites.",
+      "github_url": null,
+      "install_path": null,
+      "run_command": "N/A (installer)",
+      "os_compat": ["windows", "macos"],
+      "dependencies": {
+        "default": []
+      },
+      "post_install_commands": [],
+      "skip_if_os_not_supported": false
+    },
+    {
+      "name": "Kaspersky",
+      "description": "Commercial antivirus and internet security suite. Download from official site.",
+      "github_url": null,
+      "install_path": null,
+      "run_command": "N/A (installer)",
+      "os_compat": ["windows", "macos"],
+      "dependencies": {
+        "default": []
+      },
+      "post_install_commands": [],
+      "skip_if_os_not_supported": false
+    },
+    {
+      "name": "Norton",
+      "description": "Commercial antivirus and internet security suite. Download from official site.",
+      "github_url": null,
+      "install_path": null,
+      "run_command": "N/A (installer)",
+      "os_compat": ["windows", "macos"],
+      "dependencies": {
+        "default": []
+      },
+      "post_install_commands": [],
+      "skip_if_os_not_supported": false
+    },
+    {
+      "name": "Tripwire",
+      "description": "Commercial File Integrity Monitoring (FIM) solution. Not directly installable via UHT.",
+      "github_url": null,
+      "install_path": null,
+      "run_command": "N/A (commercial)",
+      "os_compat": ["linux", "windows"],
+      "dependencies": {
+        "default": []
+      },
+      "post_install_commands": [],
+      "skip_if_os_not_supported": false
+    },
+    {
+      "name": "OSSEC",
+      "description": "Open Source Host-based Intrusion Detection System (HIDS). Complex installation/configuration.",
+      "github_url": "https://github.com/ossec/ossec-hids.git",
+      "install_path": "tools/ossec-hids",
+      "run_command": "ossec-control",
+      "os_compat": ["linux", "macos", "windows"],
+      "dependencies": {
+        "linux": ["build-essential"],
+        "macos": ["build-essential"],
+        "windows": [], # Manual build/install
+        "default": []
+      },
+      "post_install_commands": [],
+      "skip_if_os_not_supported": false
+    },
+    {
+      "name": "Wazuh",
+      "description": "Open Source Security Platform (HIDS, SIEM, XDR capabilities). Complex installation/configuration.",
+      "github_url": "https://github.com/wazuh/wazuh.git",
+      "install_path": "tools/wazuh",
+      "run_command": "wazuh-agentd",
+      "os_compat": ["linux", "windows", "macos"],
+      "dependencies": {
+        "default": []
+      },
+      "post_install_commands": [],
+      "skip_if_os_not_supported": false
+    },
+    {
+      "name": "Microsoft Intune",
+      "description": "Commercial Mobile Device Management (MDM) and Endpoint Management solution. Cloud service.",
+      "github_url": null,
+      "install_path": null,
+      "run_command": "N/A (cloud service)",
+      "os_compat": ["any"],
+      "dependencies": {
+        "default": []
+      },
+      "post_install_commands": [],
+      "skip_if_os_not_supported": false
+    },
+    {
+      "name": "Jamf Pro",
+      "description": "Commercial Apple device management (MDM) solution. Cloud service.",
+      "github_url": null,
+      "install_path": null,
+      "run_command": "N/A (cloud service)",
+      "os_compat": ["any"],
+      "dependencies": {
+        "default": []
+      },
+      "post_install_commands": [],
+      "skip_if_os_not_supported": false
+    }
+  ],
+  "Vulnerability Scanning": [
+    {
+      "name": "Nessus",
+      "description": "Proprietary vulnerability scanner developed by Tenable, Inc. Download from official site: https://www.tenable.com/downloads/nessus",
+      "github_url": null,
+      "install_path": null,
+      "run_command": "nessus",
+      "os_compat": ["linux", "windows", "macos"],
+      "dependencies": {
+        "default": []
+      },
+      "post_install_commands": [],
+      "skip_if_os_not_supported": false
+    },
+    {
+      "name": "OpenVAS / GVM",
+      "description": "Vulnerability management platform with comprehensive scanning and reporting capabilities. Often deployed via Docker. Refer to Greenbone documentation for detailed setup: https://greenbone.github.io/",
+      "github_url": "https://github.com/greenbone/gvmd.git",
+      "install_path": null,
+      "run_command": "gvm-start",
+      "os_compat": ["linux"],
+      "dependencies": {
+        "debian_based_linux": ["openvas"],
+        "default": ["docker"]
+      },
+      "post_install_commands": [],
+      "skip_if_os_not_supported": true
+    },
+    {
+      "name": "Qualys",
+      "description": "Commercial cloud-based platform for vulnerability management and compliance. Managed via web console.",
+      "github_url": null,
+      "install_path": null,
+      "run_command": "N/A (cloud service)",
+      "os_compat": ["any"],
+      "dependencies": {
+        "default": []
+      },
+      "post_install_commands": [],
+      "skip_if_os_not_supported": false
+    },
+    {
+      "name": "Nexpose (Rapid7)",
+      "description": "Commercial vulnerability management solution by Rapid7. Not directly installable via UHT.",
+      "github_url": null,
+      "install_path": null,
+      "run_command": "N/A (platform)",
+      "os_compat": ["any"],
+      "dependencies": {
+        "default": []
+      },
+      "post_install_commands": [],
+      "skip_if_os_not_supported": false
+    },
+    {
+      "name": "Burp Suite Community Edition",
+      "description": "Integrated platform for performing security testing of web applications. Download from official site: https://portswigger.net/burp/communitydownload Requires Java.",
+      "github_url": null,
+      "install_path": null,
+      "run_command": "burpsuite",
+      "os_compat": ["linux", "windows", "macos"],
+      "dependencies": {
+        "linux": ["java"],
+        "windows": ["java"],
+        "macos": ["java"],
+        "default": []
+      },
+      "post_install_commands": [],
+      "skip_if_os_not_supported": false
+    },
+    {
+      "name": "OWASP ZAP",
+      "description": "Open Source Web Application Security Scanner. Download from official site or install via package manager for some distros (e.g., 'apt install zaproxy'). Requires Java.",
+      "github_url": null,
+      "install_path": null,
+      "run_command": "zap.sh",
+      "os_compat": ["linux", "windows", "macos"],
+      "dependencies": {
+        "linux": ["java"],
+        "windows": ["java"],
+        "macos": ["java"],
+        "default": []
+      },
+      "post_install_commands": [],
+      "skip_if_os_not_supported": false
+    },
+    {
+      "name": "Acunetix",
+      "description": "Commercial web vulnerability scanner. Not directly installable via UHT.",
+      "github_url": null,
+      "install_path": null,
+      "run_command": "N/A (platform)",
+      "os_compat": ["any"],
+      "dependencies": {
+        "default": []
+      },
+      "post_install_commands": [],
+      "skip_if_os_not_supported": false
+    },
+    {
+      "name": "Invicti (formerly Netsparker)",
+      "description": "Commercial web vulnerability scanner. Not directly installable via UHT.",
+      "github_url": null,
+      "install_path": null,
+      "run_command": "N/A (platform)",
+      "os_compat": ["any"],
+      "dependencies": {
+        "default": []
+      },
+      "post_install_commands": [],
+      "skip_if_os_not_supported": false
+    }
+  ],
+  "Exploitation": [
+    {
+      "name": "SQLMap",
+      "description": "Automatic SQL injection and database takeover tool.",
+      "github_url": "https://github.com/sqlmapproject/sqlmap.git",
+      "install_path": "tools/sqlmap",
+      "run_command": "python3 sqlmap.py",
+      "os_compat": ["linux", "termux", "windows", "macos"],
+      "dependencies": {
+        "linux": ["python3"],
+        "termux": ["python"],
+        "windows": ["python3"],
+        "macos": ["python3"],
+        "default": []
+      },
+      "post_install_commands": [],
+      "skip_if_os_not_supported": false
+    },
+    {
+      "name": "Metasploit Framework",
+      "description": "World's most used penetration testing framework. Installation can be lengthy and complex.",
+      "github_url": "https://github.com/rapid7/metasploit-framework.git",
+      "install_path": "tools/metasploit-framework",
+      "run_command": "msfconsole",
+      "os_compat": ["linux", "windows", "macos"],
+      "dependencies": {
+        "debian_based_linux": ["curl", "postgresql"],
+        "windows": ["ruby", "postgresql"],
+        "macos": ["ruby", "postgresql"],
+        "default": []
+      },
+      "post_install_commands": [
+        "curl -o msfinstall https://raw.githubusercontent.com/rapid7/metasploit-omnibus/master/config/templates/metasploit-framework-wrappers/msfupdate.erb",
+        "chmod 755 msfinstall",
+        "./msfinstall"
+      ],
+      "skip_if_os_not_supported": false
+    },
+    {
+      "name": "Evil-WinRM",
+      "description": "A WinRM shell for pentesters. Requires Ruby and specific gems.",
+      "github_url": "https://github.com/Hackplayers/evil-winrm.git",
+      "install_path": "tools/evil-winrm",
+      "run_command": "ruby evil-winrm.rb",
+      "os_compat": ["linux", "macos"],
+      "dependencies": {
+        "linux": ["ruby"],
+        "macos": ["ruby"],
+        "default": []
+      },
+      "post_install_commands": [
+        "gem install winrm winrm-fs rubyntlm rkerberos gssapi_sspi"
+      ],
+      "skip_if_os_not_supported": true
+    },
+    {
+      "name": "Pwncat",
+      "description": "Netcat on steroids with a Python reverse shell and advanced features.",
+      "github_url": "https://github.com/calebstewart/pwncat.git",
+      "install_path": "tools/pwncat",
+      "run_command": "python3 -m pwncat",
+      "os_compat": ["linux", "termux", "macos"],
+      "dependencies": {
+        "linux": ["python3", "python3-pip"],
+        "termux": ["python", "python-pip"],
+        "macos": ["python3", "pip"],
+        "default": []
+      },
+      "post_install_commands": [
+        "pip3 install -r {{install_path}}/requirements.txt"
+      ],
+      "skip_if_os_not_supported": true
+    },
+    {
+      "name": "Cobalt Strike",
+      "description": "Commercial Red Team Operations and APT Simulation platform. Purchase and download from official site: https://www.cobaltstrike.com/",
+      "github_url": null,
+      "install_path": null,
+      "run_command": "N/A (commercial platform)",
+      "os_compat": ["linux", "windows", "macos"],
+      "dependencies": {
+        "default": []
+      },
+      "post_install_commands": [],
+      "skip_if_os_not_supported": false
+    },
+    {
+      "name": "BloodHound",
+      "description": "Active Directory reconnaissance and path enumeration tool. Requires Neo4j database (manual setup recommended).",
+      "github_url": "https://github.com/BloodHoundAD/BloodHound.git",
+      "install_path": "tools/bloodhound",
+      "run_command": "bloodhound",
+      "os_compat": ["linux", "windows", "macos"],
+      "dependencies": {
+        "linux": ["neo4j"],
+        "windows": ["neo4j"],
+        "macos": ["neo4j"],
+        "default": []
+      },
+      "post_install_commands": [],
+      "skip_if_os_not_supported": false
+    },
+    {
+      "name": "Immunity Debugger",
+      "description": "A powerful, free debugger for malware analysis and exploit development (Windows only). Download from: https://www.immunityinc.com/products/debugger/",
+      "github_url": null,
+      "install_path": null,
+      "run_command": "ImmunityDebugger.exe",
+      "os_compat": ["windows"],
+      "dependencies": {
+        "default": []
+      },
+      "post_install_commands": [],
+      "skip_if_os_not_supported": true
+    },
+    {
+      "name": "OllyDbg",
+      "description": "A 32-bit assembler level analyzing debugger for Microsoft Windows. Download from: http://www.ollydbg.de/",
+      "github_url": null,
+      "install_path": null,
+      "run_command": "ollydbg.exe",
+      "os_compat": ["windows"],
+      "dependencies": {
+        "default": []
+      },
+      "post_install_commands": [],
+      "skip_if_os_not_supported": true
+    }
+  ],
+  "Web Hacking": [
+    {
+      "name": "GoBuster",
+      "description": "Directory/file & DNS busting tool written in Go. Requires Go to be installed.",
+      "github_url": "https://github.com/OJ/gobuster.git",
+      "install_path": "tools/gobuster",
+      "run_command": "./gobuster",
+      "os_compat": ["linux", "termux", "windows", "macos"],
+      "dependencies": {
+        "linux": ["go"],
+        "termux": ["go"],
+        "windows": ["go"],
+        "macos": ["go"],
+        "default": []
+      },
+      "post_install_commands": [
+        "cd {{install_path}} && go install"
+      ],
+      "skip_if_os_not_supported": false
+    },
+    {
+      "name": "Wfuzz",
+      "description": "Web fuzzer.",
+      "github_url": "https://github.com/xmendez/wfuzz.git",
+      "install_path": "tools/wfuzz",
+      "run_command": "python3 wfuzz.py",
+      "os_compat": ["linux", "termux", "windows", "macos"],
+      "dependencies": {
+        "linux": ["python3", "python3-pip"],
+        "termux": ["python", "python-pip"],
+        "windows": ["python3", "pip"],
+        "macos": ["python3", "pip"],
+        "default": []
+      },
+      "post_install_commands": [
+        "pip3 install -r {{install_path}}/requirements.txt"
+      ],
+      "skip_if_os_not_supported": false
+    },
+    {
+      "name": "Arjun",
+      "description": "HTTP parameter discovery suite.",
+      "github_url": "https://github.com/s0md3v/Arjun.git",
+      "install_path": "tools/arjun",
+      "run_command": "python3 arjun.py",
+      "os_compat": ["linux", "termux", "windows", "macos"],
+      "dependencies": {
+        "linux": ["python3", "python3-pip"],
+        "termux": ["python", "python-pip"],
+        "windows": ["python3", "pip"],
+        "macos": ["python3", "pip"],
+        "default": []
+      },
+      "post_install_commands": [
+        "pip3 install -r {{install_path}}/requirements.txt"
+      ],
+      "skip_if_os_not_supported": false
+    },
+    {
+      "name": "W3af",
+      "description": "Web Application Attack and Audit Framework. Requires Python.",
+      "github_url": "https://github.com/andresriancho/w3af.git",
+      "install_path": "tools/w3af",
+      "run_command": "python3 w3af_console",
+      "os_compat": ["linux", "macos"],
+      "dependencies": {
+        "linux": ["python3", "python3-pip"],
+        "macos": ["python3", "pip"],
+        "default": []
+      },
+      "post_install_commands": [
+        "pip3 install -r {{install_path}}/requirements.txt"
+      ],
+      "skip_if_os_not_supported": true
+    },
+    {
+      "name": "BeEF (Browser Exploitation Framework)",
+      "description": "The Browser Exploitation Framework Project. Requires Ruby.",
+      "github_url": "https://github.com/beefproject/beef.git",
+      "install_path": "tools/beef",
+      "run_command": "beef",
+      "os_compat": ["linux", "macos"],
+      "dependencies": {
+        "linux": ["ruby"],
+        "macos": ["ruby"],
+        "default": []
+      },
+      "post_install_commands": [
+        "cd {{install_path}} && bundle install"
+      ],
+      "skip_if_os_not_supported": true
+    }
+  ],
+  "Privilege Escalation": [
+    {
+      "name": "LinPEAS",
+      "description": "Local Linux Privilege Escalation Awesome Script.",
+      "github_url": "https://github.com/carlospolop/PEASS-ng.git",
+      "install_path": "tools/linpeas",
+      "run_command": "bash linpeas.sh",
+      "os_compat": ["linux", "termux"],
+      "dependencies": {
+        "linux": ["bash"],
+        "termux": ["bash"],
+        "default": []
+      },
+      "post_install_commands": [],
+      "skip_if_os_not_supported": true
+    },
+    {
+      "name": "WinPEAS",
+      "description": "Local Windows Privilege Escalation Awesome Script.",
+      "github_url": "https://github.com/carlospolop/PEASS-ng.git",
+      "install_path": "tools/winpeas",
+      "run_command": "PowerShell.exe -ExecutionPolicy Bypass -File winPEAS.ps1",
+      "os_compat": ["windows"],
+      "dependencies": {
+        "windows": ["powershell"],
+        "default": []
+      },
+      "post_install_commands": [],
+      "skip_if_os_not_supported": true
+    },
+    {
+      "name": "Privilege Escalation Awesome Scripts (PEASS-ng)",
+      "description": "All-in-one suite for local privilege escalation. Contains LinPEAS, WinPEAS etc. See individual scripts for usage. GitHub repo provides source.",
+      "github_url": "https://github.com/carlospolop/PEASS-ng.git",
+      "install_path": "tools/PEASS-ng",
+      "run_command": "N/A (run individual scripts)",
+      "os_compat": ["linux", "windows", "macos", "termux"],
+      "dependencies": {
+        "linux": ["bash"],
+        "windows": ["powershell"],
+        "macos": ["bash"],
+        "termux": ["bash"],
+        "default": []
+      },
+      "post_install_commands": [],
+      "skip_if_os_not_supported": false
+    },
+    {
+      "name": "GTFOBins",
+      "description": "Curated list of Unix binaries that can be exploited to bypass local security restrictions. Access via web: https://gtfobins.github.io/",
+      "github_url": null,
+      "install_path": null,
+      "run_command": "N/A (web resource)",
+      "os_compat": ["any"],
+      "dependencies": {
+        "default": []
+      },
+      "post_install_commands": [],
+      "skip_if_os_not_supported": false
+    },
+    {
+      "name": "HackTricks (PrivEsc Section)",
+      "description": "Comprehensive collection of penetration testing and ethical hacking tricks, including privilege escalation techniques. Access via web: https://book.hacktricks.xyz/privilege-escalation",
+      "github_url": null,
+      "install_path": null,
+      "run_command": "N/A (web resource)",
+      "os_compat": ["any"],
+      "dependencies": {
+        "default": []
+      },
+      "post_install_commands": [],
+      "skip_if_os_not_supported": false
+    }
+  ],
+  "Payloads": [
+    {
+      "name": "Msfvenom",
+      "description": "A payload generator, part of Metasploit Framework. Requires Metasploit Framework to be installed.",
+      "github_url": null,
+      "install_path": null,
+      "run_command": "msfvenom",
+      "os_compat": ["linux", "windows", "macos"],
+      "dependencies": {
+        "default": []
+      },
+      "post_install_commands": [],
+      "skip_if_os_not_supported": false
+    },
+    {
+      "name": "PoshC2",
+      "description": "A powershell C2 framework for Red Teams.",
+      "github_url": "https://github.com/nettitude/PoshC2.git",
+      "install_path": "tools/PoshC2",
+      "run_command": "poshc2",
+      "os_compat": ["linux", "windows"],
+      "dependencies": {
+        "linux": ["python3", "python3-pip", "mono-complete"],
+        "windows": ["python3", "pip", "powershell"],
+        "default": []
+      },
+      "post_install_commands": [
+        "pip3 install -r {{install_path}}/requirements.txt"
+      ],
+      "skip_if_os_not_supported": false
+    }
+  ],
+  "Wordlists": [
+    {
+      "name": "SecLists",
+      "description": "A collection of multiple types of lists used during security assessments.",
+      "github_url": "https://github.com/danielmiessler/SecLists.git",
+      "install_path": "wordlists/SecLists",
+      "run_command": "N/A (collection of files)",
+      "os_compat": ["any"],
+      "dependencies": {
+        "default": []
+      },
+      "post_install_commands": [],
+      "skip_if_os_not_supported": false
+    },
+    {
+      "name": "Rockyou",
+      "description": "A famous wordlist for password cracking. Often included in Kali Linux or can be found online. Decompress if needed (e.g., 'gzip -d rockyou.txt.gz').",
+      "github_url": null,
+      "install_path": "wordlists/rockyou.txt",
+      "run_command": "N/A (file)",
+      "os_compat": ["any"],
+      "dependencies": {
+        "default": []
+      },
+      "post_install_commands": [],
+      "skip_if_os_not_supported": false
+    }
+  ],
+  "Phishing": [
+    {
+      "name": "SocialFish",
+      "description": "Phishing Tool and Social Engineering Tool.",
+      "github_url": "https://github.com/UndeadSec/SocialFish.git",
+      "install_path": "tools/SocialFish",
+      "run_command": "python3 SocialFish.py",
+      "os_compat": ["linux", "termux"],
+      "dependencies": {
+        "linux": ["python3", "php"],
+        "termux": ["python", "php"],
+        "default": []
+      },
+      "post_install_commands": [
+        "pip3 install -r {{install_path}}/requirements.txt"
+      ],
+      "skip_if_os_not_supported": true
+    },
+    {
+      "name": "Setoolkit (Social-Engineer Toolkit)",
+      "description": "Open-source penetration testing framework designed for social engineering.",
+      "github_url": "https://github.com/trustedsec/social-engineer-toolkit.git",
+      "install_path": "tools/setoolkit",
+      "run_command": "setoolkit",
+      "os_compat": ["linux", "windows", "macos"],
+      "dependencies": {
+        "linux": ["python3", "python3-pip"],
+        "windows": ["python3", "pip"],
+        "macos": ["python3", "pip"],
+        "default": []
+      },
+      "post_install_commands": [
+        "pip3 install -r {{install_path}}/requirements.txt"
+      ],
+      "skip_if_os_not_supported": false
+    },
+    {
+      "name": "GoPhish",
+      "description": "Open-source phishing framework. Download from GitHub releases or official site.",
+      "github_url": "https://github.com/gophish/gophish.git",
+      "install_path": "tools/gophish",
+      "run_command": "./gophish",
+      "os_compat": ["linux", "windows", "macos"],
+      "dependencies": {
+        "linux": ["go"],
+        "windows": ["go"],
+        "macos": ["go"],
+        "default": []
+      },
+      "post_install_commands": [],
+      "skip_if_os_not_supported": false
+    }
+  ],
+  "Password Cracking": [
+    {
+      "name": "John the Ripper",
+      "description": "Fast password cracker. Requires compilation from source. Refer to official documentation for build instructions: https://www.openwall.com/john/",
+      "github_url": "https://github.com/openwall/john.git",
+      "install_path": "tools/john",
+      "run_command": "john",
+      "os_compat": ["linux", "termux", "windows", "macos"],
+      "dependencies": {
+        "linux": ["build-essential", "libssl-dev"],
+        "termux": ["clang", "libssl-dev"],
+        "windows": ["mingw-w64"],
+        "macos": ["john-jumbo"],
+        "default": []
+      },
+      "post_install_commands": [],
+      "skip_if_os_not_supported": false
+    },
+    {
+      "name": "Hashcat",
+      "description": "World's fastest and most advanced password recovery utility. GPU-accelerated. Download from official site: https://hashcat.net/hashcat/",
+      "github_url": null,
+      "install_path": null,
+      "run_command": "hashcat",
+      "os_compat": ["linux", "windows", "macos"],
+      "dependencies": {
+        "default": []
+      },
+      "post_install_commands": [],
+      "skip_if_os_not_supported": false
+    },
+    {
+      "name": "Hydra",
+      "description": "A very fast network logon cracker which supports numerous protocols to attack.",
+      "github_url": "https://github.com/vanhauser-thc/thc-hydra.git",
+      "install_path": "tools/hydra",
+      "run_command": "hydra",
+      "os_compat": ["linux", "termux", "macos"],
+      "dependencies": {
+        "linux": ["libssl-dev", "libssh-dev", "libidn11-dev", "libpcre3-dev", "libncursesw5-dev", "libtool", "automake", "autoconf"],
+        "termux": ["libssl-dev", "libssh-dev", "libidn-dev", "libpcre-dev", "ncurses-utils", "libtool", "automake", "autoconf"],
+        "macos": ["hydra"], # Homebrew package
+        "default": []
+      },
+      "post_install_commands": [
+        "cd {{install_path}} && ./configure && make && sudo make install"
+      ],
+      "skip_if_os_not_supported": true
+    }
+  ],
+  "Wireless Hacking": [
+    {
+      "name": "Aircrack-ng",
+      "description": "A complete suite of tools to assess WiFi network security.",
+      "github_url": "https://github.com/aircrack-ng/aircrack-ng.git",
+      "install_path": "tools/aircrack-ng",
+      "run_command": "aircrack-ng",
+      "os_compat": ["linux", "termux", "macos"],
+      "dependencies": {
+        "linux": ["build-essential", "libpcap-dev", "libssl-dev", "libnl-3-dev", "libnl-genl-3-dev"],
+        "termux": ["build-essential", "libpcap-dev", "libssl-dev"],
+        "macos": ["aircrack-ng"], # Homebrew package
+        "default": []
+      },
+      "post_install_commands": [
+        "cd {{install_path}} && autoreconf -i && ./configure --with-libnl && make && sudo make install && sudo airodump-ng-oui-update"
+      ],
+      "skip_if_os_not_supported": true
+    }
+  ],
+  "Reconnaissance": [
+    {
+      "name": "Nmap",
+      "description": "Network scanner and security auditing tool.",
+      "github_url": "https://github.com/nmap/nmap.git",
+      "install_path": "tools/nmap",
+      "run_command": "nmap",
+      "os_compat": ["linux", "termux", "windows", "macos"],
+      "dependencies": {
+        "linux": ["nmap"],
+        "termux": ["nmap"],
+        "debian_based_linux": ["nmap"],
+        "arch_based_linux": ["nmap"],
+        "windows": ["nmap"],
+        "macos": ["nmap"],
+        "default": []
+      },
+      "post_install_commands": [],
+      "skip_if_os_not_supported": true
+    },
+    {
+      "name": "Sublist3r",
+      "description": "Fast subdomain enumeration tool for penetration testers.",
+      "github_url": "https://github.com/aboul3la/Sublist3r.git",
+      "install_path": "tools/Sublist3r",
+      "run_command": "python3 Sublist3r.py",
+      "os_compat": ["linux", "termux", "windows", "macos"],
+      "dependencies": {
+        "linux": ["python3", "python3-pip"],
+        "termux": ["python", "python-pip"],
+        "windows": ["python3", "pip"],
+        "macos": ["python3", "pip"],
+        "default": []
+      },
+      "post_install_commands": [
+        "pip3 install -r {{install_path}}/requirements.txt"
+      ],
+      "skip_if_os_not_supported": true
+    },
+    {
+      "name": "Amass",
+      "description": "OWASP Amass is a network mapping tool that can discover domains and subdomains. Requires Go to be installed and configured in PATH.",
+      "github_url": "https://github.com/owasp-amass/amass.git",
+      "install_path": "tools/amass",
+      "run_command": "amass",
+      "os_compat": ["linux", "termux", "windows", "macos"],
+      "dependencies": {
+        "linux": ["go"],
+        "termux": ["go"],
+        "windows": ["go"],
+        "macos": ["go"],
+        "default": []
+      },
+      "post_install_commands": [
+        "go install -v github.com/owasp-amass/amass/v4/...@master"
+      ],
+      "skip_if_os_not_supported": false
+    },
+    {
+      "name": "TheHarvester",
+      "description": "OSINT tool for gathering emails, subdomains, hosts, employee names, open ports, etc.",
+      "github_url": "https://github.com/laramies/theHarvester.git",
+      "install_path": "tools/theHarvester",
+      "run_command": "python3 theHarvester.py",
+      "os_compat": ["linux", "termux", "windows", "macos"],
+      "dependencies": {
+        "linux": ["python3", "python3-pip"],
+        "termux": ["python", "python-pip"],
+        "windows": ["python3", "pip"],
+        "macos": ["python3", "pip"],
+        "default": []
+      },
+      "post_install_commands": [
+        "pip3 install -r {{install_path}}/requirements/base.txt"
+      ],
+      "skip_if_os_not_supported": false
+    },
+    {
+      "name": "Maltego",
+      "description": "Open-source intelligence and graphical link analysis tool. Download from official site: https://www.maltego.com/downloads/ Requires Java.",
+      "github_url": null,
+      "install_path": null,
+      "run_command": "maltego",
+      "os_compat": ["linux", "windows", "macos"],
+      "dependencies": {
+        "linux": ["openjdk-11-jdk"],
+        "windows": ["java"],
+        "macos": ["java"],
+        "default": []
+      },
+      "post_install_commands": [],
+      "skip_if_os_not_supported": false
+    },
+    {
+      "name": "Shodan CLI",
+      "description": "Command-line interface for the Shodan search engine. Install with 'pip install shodan'. After installation, run 'shodan init YOUR_API_KEY' to configure (replace YOUR_API_KEY).",
+      "github_url": "https://github.com/ShodanInternetdrawers/python-shodan.git",
+      "install_path": "tools/python-shodan",
+      "run_command": "shodan",
+      "os_compat": ["linux", "termux", "windows", "macos"],
+      "dependencies": {
+        "linux": ["python3", "python3-pip"],
+        "termux": ["python", "python-pip"],
+        "windows": ["python3", "pip"],
+        "macos": ["python3", "pip"],
+        "default": []
+      },
+      "post_install_commands": [
+        "pip3 install shodan"
+      ],
+      "skip_if_os_not_supported": false
+    },
+    {
+      "name": "Recon-ng",
+      "description": "Full-featured reconnaissance framework designed with the goal of providing a powerful environment to conduct open source web-based reconnaissance.",
+      "github_url": "https://github.com/lanmaster53/recon-ng.git",
+      "install_path": "tools/recon-ng",
+      "run_command": "recon-ng",
+      "os_compat": ["linux", "termux"],
+      "dependencies": {
+        "linux": ["python3", "python3-pip"],
+        "termux": ["python", "python-pip"],
+        "default": []
+      },
+      "post_install_commands": [
+        "pip3 install -r {{install_path}}/requirements.txt"
+      ],
+      "skip_if_os_not_supported": true
+    },
+    {
+      "name": "SpiderFoot",
+      "description": "Open source intelligence (OSINT) automation tool. Integrates with many data sources.",
+      "github_url": "https://github.com/smicallef/spiderfoot.git",
+      "install_path": "tools/spiderfoot",
+      "run_command": "python3 sf.py",
+      "os_compat": ["linux", "termux", "windows", "macos"],
+      "dependencies": {
+        "linux": ["python3", "python3-pip"],
+        "termux": ["python", "python-pip"],
+        "windows": ["python3", "pip"],
+        "macos": ["python3", "pip"],
+        "default": []
+      },
+      "post_install_commands": [
+        "pip3 install -r {{install_path}}/requirements.txt"
+      ],
+      "skip_if_os_not_supported": false
+    }
+  ],
+  "SIEM & SOAR": [
+    {
+      "name": "Splunk Enterprise Security",
+      "description": "Industry-leading commercial SIEM platform. Requires Splunk Enterprise. Not directly installable via UHT.",
+      "github_url": null,
+      "install_path": null,
+      "run_command": "N/A (platform)",
+      "os_compat": ["any"],
+      "dependencies": {
+        "default": []
+      },
+      "post_install_commands": [],
+      "skip_if_os_not_supported": false
+    },
+    {
+      "name": "IBM QRadar",
+      "description": "Commercial SIEM platform by IBM. Not directly installable via UHT.",
+      "github_url": null,
+      "install_path": null,
+      "run_command": "N/A (platform)",
+      "os_compat": ["any"],
+      "dependencies": {
+        "default": []
+      },
+      "post_install_commands": [],
+      "skip_if_os_not_supported": false
+    },
+    {
+      "name": "Microsoft Sentinel",
+      "description": "Cloud-native SIEM and SOAR solution by Microsoft Azure. Managed via Azure portal.",
+      "github_url": null,
+      "install_path": null,
+      "run_command": "N/A (cloud service)",
+      "os_compat": ["any"],
+      "dependencies": {
+        "default": []
+      },
+      "post_install_commands": [],
+      "skip_if_os_not_supported": false
+    },
+    {
+      "name": "Elastic SIEM (Elastic Stack)",
+      "description": "Open-source SIEM capabilities built on the Elastic Stack (Elasticsearch, Kibana, Beats). Download from official site: https://www.elastic.co/downloads Requires Java.",
+      "github_url": null,
+      "install_path": null,
+      "run_command": "N/A (suite of services)",
+      "os_compat": ["linux", "windows", "macos"],
+      "dependencies": {
+        "default": ["java"]
+      },
+      "post_install_commands": [],
+      "skip_if_os_not_supported": false
+    },
+    {
+      "name": "ArcSight (Micro Focus)",
+      "description": "Commercial SIEM platform. Not directly installable via UHT.",
+      "github_url": null,
+      "install_path": null,
+      "run_command": "N/A (platform)",
+      "os_compat": ["any"],
+      "dependencies": {
+        "default": []
+      },
+      "post_install_commands": [],
+      "skip_if_os_not_supported": false
+    },
+    {
+      "name": "LogRhythm",
+      "description": "Commercial SIEM and security analytics platform. Not directly installable via UHT.",
+      "github_url": null,
+      "install_path": null,
+      "run_command": "N/A (platform)",
+      "os_compat": ["any"],
+      "dependencies": {
+        "default": []
+      },
+      "post_install_commands": [],
+      "skip_if_os_not_supported": false
+    },
+    {
+      "name": "Wazuh (Open Source HIDS/SIEM)",
+      "description": "Open Source Security Platform (HIDS, SIEM, XDR capabilities). Complex installation/configuration.",
+      "github_url": "https://github.com/wazuh/wazuh.git",
+      "install_path": "tools/wazuh",
+      "run_command": "wazuh-agentd",
+      "os_compat": ["linux", "windows", "macos"],
+      "dependencies": {
+        "default": []
+      },
+      "post_install_commands": [],
+      "skip_if_os_not_supported": false
+    },
+    {
+      "name": "Palo Alto Networks Cortex XSOAR",
+      "description": "Commercial Security Orchestration, Automation, and Response (SOAR) platform. Not directly installable via UHT.",
+      "github_url": null,
+      "install_path": null,
+      "run_command": "N/A (platform)",
+      "os_compat": ["any"],
+      "dependencies": {
+        "default": []
+      },
+      "post_install_commands": [],
+      "skip_if_os_not_supported": false
+    },
+    {
+      "name": "Splunk SOAR (formerly Phantom)",
+      "description": "Commercial Security Orchestration, Automation, and Response (SOAR) platform by Splunk. Not directly installable via UHT.",
+      "github_url": null,
+      "install_path": null,
+      "run_command": "N/A (platform)",
+      "os_compat": ["any"],
+      "dependencies": {
+        "default": []
+      },
+      "post_install_commands": [],
+      "skip_if_os_not_supported": false
+    },
+    {
+      "name": "IBM Resilient",
+      "description": "Commercial Security Orchestration, Automation, and Response (SOAR) platform by IBM. Not directly installable via UHT.",
+      "github_url": null,
+      "install_path": null,
+      "run_command": "N/A (platform)",
+      "os_compat": ["any"],
+      "dependencies": {
+        "default": []
+      },
+      "post_install_commands": [],
+      "skip_if_os_not_supported": false
+    },
+    {
+      "name": "Swimlane",
+      "description": "Commercial Security Orchestration, Automation, and Response (SOAR) platform. Not directly installable via UHT.",
+      "github_url": null,
+      "install_path": null,
+      "run_command": "N/A (platform)",
+      "os_compat": ["any"],
+      "dependencies": {
+        "default": []
+      },
+      "post_install_commands": [],
+      "skip_if_os_not_supported": false
+    }
+  ],
+  "Identity and Access Management (IAM)": [
+    {
+      "name": "Okta",
+      "description": "Commercial Identity Provider (IdP) and Single Sign-On (SSO) solution. Cloud service.",
+      "github_url": null,
+      "install_path": null,
+      "run_command": "N/A (cloud service)",
+      "os_compat": ["any"],
+      "dependencies": {
+        "default": []
+      },
+      "post_install_commands": [],
+      "skip_if_os_not_supported": false
+    },
+    {
+      "name": "Microsoft Azure Active Directory / Entra ID",
+      "description": "Microsoft's cloud-based identity and access management service. Cloud service.",
+      "github_url": null,
+      "install_path": null,
+      "run_command": "N/A (cloud service)",
+      "os_compat": ["any"],
+      "dependencies": {
+        "default": []
+      },
+      "post_install_commands": [],
+      "skip_if_os_not_supported": false
+    },
+    {
+      "name": "Ping Identity",
+      "description": "Commercial Identity Provider (IdP) and access management solution. Cloud service.",
+      "github_url": null,
+      "install_path": null,
+      "run_command": "N/A (cloud service)",
+      "os_compat": ["any"],
+      "dependencies": {
+        "default": []
+      },
+      "post_install_commands": [],
+      "skip_if_os_not_supported": false
+    },
+    {
+      "name": "Auth0 (Okta)",
+      "description": "Commercial Identity Provider (IdP) and authentication/authorization platform. Cloud service.",
+      "github_url": null,
+      "install_path": null,
+      "run_command": "N/A (cloud service)",
+      "os_compat": ["any"],
+      "dependencies": {
+        "default": []
+      },
+      "post_install_commands": [],
+      "skip_if_os_not_supported": false
+    },
+    {
+      "name": "Duo Security (MFA)",
+      "description": "Commercial multi-factor authentication (MFA) solution. Cloud service.",
+      "github_url": null,
+      "install_path": null,
+      "run_command": "N/A (cloud service)",
+      "os_compat": ["any"],
+      "dependencies": {
+        "default": []
+      },
+      "post_install_commands": [],
+      "skip_if_os_not_supported": false
+    },
+    {
+      "name": "CyberArk",
+      "description": "Commercial Privileged Access Management (PAM) solution. Not directly installable via UHT.",
+      "github_url": null,
+      "install_path": null,
+      "run_command": "N/A (platform)",
+      "os_compat": ["any"],
+      "dependencies": {
+        "default": []
+      },
+      "post_install_commands": [],
+      "skip_if_os_not_supported": false
+    },
+    {
+      "name": "Delinea (formerly Thycotic and Centrify)",
+      "description": "Commercial Privileged Access Management (PAM) solution. Not directly installable via UHT.",
+      "github_url": null,
+      "install_path": null,
+      "run_command": "N/A (platform)",
+      "os_compat": ["any"],
+      "dependencies": {
+        "default": []
+      },
+      "post_install_commands": [],
+      "skip_if_os_not_supported": false
+    },
+    {
+      "name": "BeyondTrust",
+      "description": "Commercial Privileged Access Management (PAM) solution. Not directly installable via UHT.",
+      "github_url": null,
+      "install_path": null,
+      "run_command": "N/A (platform)",
+      "os_compat": ["any"],
+      "dependencies": {
+        "default": []
+      },
+      "post_install_commands": [],
+      "skip_if_os_not_supported": false
+    },
+    {
+      "name": "HashiCorp Vault",
+      "description": "Open-source tool for managing secrets and protecting sensitive data. Complex setup required. Download official binaries or build from source.",
+      "github_url": "https://github.com/hashicorp/vault.git",
+      "install_path": "tools/vault",
+      "run_command": "vault",
+      "os_compat": ["linux", "windows", "macos"],
+      "dependencies": {
+        "linux": ["go"],
+        "windows": ["go"],
+        "macos": ["go"],
+        "default": []
+      },
+      "post_install_commands": [],
+      "skip_if_os_not_supported": false
+    }
+  ]
+}

@@ -1,0 +1,5 @@
+{
+  "UHT_VERSION": "1.0.0",
+  "TOOLS_DIR": "tools",
+  "REMOTE_TOOLS_JSON_URL": "https://raw.githubusercontent.com/AwaisNawaz-UfaqTech/UHT-Framework/main/config/tools.json"
+}
