@@ -1,4 +1,4 @@
-# 🛡️ UHT-Framework: Ufaq Hacking Toolkit  
+# 🛡️ UHT-Framework: UfaqTech Hacking Toolkit  
 *A Modern, Multi-OS Cybersecurity Framework for Penetration Testing & Ethical Hacking*
 
 ![GitHub stars](https://img.shields.io/github/stars/AwaisNawaz-UfaqTech/UHT-Framework?style=social)
