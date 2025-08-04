@@ -70,14 +70,20 @@ UHT-Framework/
 ### 1. Clone the Repository
 ```bash
 git clone https://github.com/UfaqTech/UHT-Framework.git
-cd UHT-Framework
+
 ```
 
 ### 2. Run the Installer
 ```bash
-bash install.sh
+cd UHT-Framework
 ```
 
+```bash
+bash install.sh
+```
+```bash
+python uth.py
+```
 This installs:
 - Git, Python, pip, and system tools
 - Virtual environment (`venv`)
