@@ -1,8 +1,8 @@
 # 🛡️ UHT-Framework: UfaqTech Hacking Toolkit  
 *A Modern, Multi-OS Cybersecurity Framework for Penetration Testing & Ethical Hacking*
 
-![GitHub stars](https://img.shields.io/github/stars/AwaisNawaz-UfaqTech/UHT-Framework?style=social)
-![GitHub forks](https://img.shields.io/github/forks/AwaisNawaz-UfaqTech/UHT-Framework?style=social)
+![GitHub stars](https://img.shields.io/github/stars/UfaqTech/UHT-Framework?style=social)
+![GitHub forks](https://img.shields.io/github/forks/UfaqTech/UHT-Framework?style=social)
 ![License](https://img.shields.io/badge/License-MIT-blue.svg)
 
 ---
@@ -69,7 +69,7 @@ UHT-Framework/
 
 ### 1. Clone the Repository
 ```bash
-git clone https://github.com/AwaisNawaz-UfaqTech/UHT-Framework.git
+git clone https://github.com/UfaqTech/UHT-Framework.git
 cd UHT-Framework
 ```
 
